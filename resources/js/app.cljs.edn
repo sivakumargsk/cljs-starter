@@ -1,0 +1,3 @@
+{:require  [cljs-starter.app]
+ :init-fns [cljs-starter.app/init]
+ :compiler-options {:asset-path "js/app.out" :devcards true}}
