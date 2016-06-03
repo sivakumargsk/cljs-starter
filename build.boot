@@ -8,12 +8,14 @@
                  [org.clojure/tools.nrepl "0.2.12" :scope "test"]
                  [adzerk/boot-reload        "0.4.2"      :scope "test"]
                  [pandeiro/boot-http        "0.7.0"      :scope "test"]
-                 [org.clojure/clojurescript "1.7.122"]
-                 [devcards "0.2.1"]
+                 [org.clojure/clojurescript "1.8.34"]
+                 [devcards "0.2.1-6"]
                  [sablono "0.4.0"]
                  [crisptrutski/boot-cljs-test "0.2.0-SNAPSHOT" :scope "test"]
-                 [reagent "0.5.1"]
-                 [binaryage/devtools "0.4.1"]])
+                 ;; [reagent "0.5.1"]
+                 [reagent "0.6.0-alpha"]
+                 [binaryage/devtools "0.4.1"]
+                 [re-com "0.8.1"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
