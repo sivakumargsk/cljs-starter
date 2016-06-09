@@ -13,7 +13,9 @@
                  [sablono "0.4.0"]
                  [crisptrutski/boot-cljs-test "0.2.0-SNAPSHOT" :scope "test"]
                  [reagent "0.5.1"]
-                 [binaryage/devtools "0.4.1"]])
+                 [binaryage/devtools "0.4.1"]
+                 [com.cognitect/transit-clj "0.8.285"]
+                 [jarohen/chord "0.7.0"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
