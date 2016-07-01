@@ -47,7 +47,7 @@
         (fn []
           (go
             (let [{:keys [ws-channel error]}
-                  (<! (ws-ch "ws://192.168.0.105:9090/ws-chat/1?name=4"
+                  (<! (ws-ch "ws://192.168.0.105:9999/ws-chat/1?id=10&name=siva"
                              {:format :str }))]
               (if error
                 ;; connection failed, print error
