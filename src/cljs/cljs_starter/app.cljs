@@ -16,7 +16,6 @@
   (devtools/install!)
   (devcards.core/start-devcard-ui!))
 
-
 (defn progresSim [all ctx cw ch]
   (let [diff (.toFixed (* (/ @all 100) Math/PI 2 10) 2)]
     (.clearRect ctx 0 0 cw ch)
@@ -49,7 +48,43 @@
                       :height 150
                       :style {:border "1px dashed #ccc"}}]])}))
 
-
-
 (defcard canvas-cicular-progress
   (reagent/as-element [my-component]))
+
+
+(def progressbar-json
+  {:color "#aaa"
+   :strokeWidth 10
+   :trailWidth 20
+   :easing "easeInOut"
+   :duration 1400
+   :text {:autoStyleContainer false}
+   :from { :color "#aaa" :width "20" }
+   :to { :color "#333" :width "20" }
+   :step (fn [state circle]
+           (let [value (Math/round (* (.value circle) 100))]
+             (.setAttribute (.-path circle) "stroke" "lightgreen")
+             (.setAttribute (.-path circle) "stroke-width" (.-width state))
+             (if (= 0 value)
+               (.setText circle "0%")
+               (.setText circle (str value "%")))))})
+
+(defn circular-progress-bar []
+  (reagent/create-class
+   {:component-did-mount
+    #(let [Circle (.-Circle js/ProgressBar)
+           progress-bar (Circle. "#progressbar" (clj->js progressbar-json))]
+       (set! (.-fontSize (.-style (.-text progress-bar))) "2rem")
+       (.animate progress-bar 1.0))
+    :reagent-render
+    (fn []
+      [:div
+       {:id "progressbar"
+        :style {:margin "20px"
+                :position "relative"
+                :width "150px"
+                :height "150px"}}])}))
+
+
+(defcard Circular-bar-using-progressbar.js
+  (reagent/as-element [circular-progress-bar ]))
