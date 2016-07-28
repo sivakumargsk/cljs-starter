@@ -12,6 +12,12 @@
 (defn init []
   #_(render  [:h1 "Hello, Clojurescript"]
              (.getElementById js/document "main-app-area"))
-  (devtools/set-pref! :install-sanity-hints true)
-  (devtools/install!)
+  ;; (devtools/set-pref! :install-sanity-hints true)
+  ;; (devtools/install!)
   (devcards.core/start-devcard-ui!))
+
+(defn helloworld []
+  [:h1 "Hello World"])
+
+(defcard Greetings
+  (reagent/as-element [helloworld]))
